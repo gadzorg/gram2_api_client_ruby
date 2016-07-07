@@ -4,7 +4,7 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'gram_v2_client', git: => 'https://github.com/gadzorg/gram2_api_client_ruby.git'
+gem 'gram_v2_client', git: 'https://github.com/gadzorg/gram2_api_client_ruby.git'
 ```
 
 And then execute:
