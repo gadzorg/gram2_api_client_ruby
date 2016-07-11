@@ -30,6 +30,8 @@ GramV2Client.configure do |c|
  
  
 ```
+
+Tips : you can init a config for the test environment (local instance of gram2_api_server and default admin account) with `GramV2Client.init_test`.
 ## Usage
 TODO
 ## Development
