@@ -2,6 +2,10 @@ require 'active_resource'
 
 class GramV2Client::Base < ActiveResource::Base
   # This is set to enable Configuration change at runtime.
+  
+  def to_param
+    uuid
+  end
 
   class << self
     def site
