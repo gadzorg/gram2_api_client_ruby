@@ -1,13 +1,27 @@
 require 'active_resource'
 
 class GramV2Client::Base < ActiveResource::Base
-  # This is set to enable Configuration change at runtime.
-  
+
   def to_param
     uuid
   end
 
   class << self
+
+    def find(*args,&block)
+      begin
+        super(*args,&block)
+      rescue ActiveResource::ResourceNotFound => e
+        raise GramV2Client::ResourceNotFound.new(
+            resource: self.name,
+            query: args.first,
+            source_exception: e
+
+        )
+      end
+    end
+
+    # This is set to enable Configuration change at runtime.
     def site
       if GramV2Client.configuration.site
         if super.to_s != URI.parse(GramV2Client.configuration.site).to_s
